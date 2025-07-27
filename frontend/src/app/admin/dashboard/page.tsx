@@ -95,12 +95,28 @@ export default function AdminDashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            Welcome to Aaron Coleman Music CMS
-          </h2>
-          <p className="text-gray-600">
-            Manage your website content, blog posts, and media files from this dashboard.
-          </p>
+          <div className="bg-gradient-to-r from-primary-600 to-primary-800 rounded-lg p-6 text-white">
+            <h2 className="text-2xl font-bold mb-2">
+              Welcome to Aaron Coleman Music CMS
+            </h2>
+            <p className="text-primary-100">
+              Your professional content management system for musicians. Create, manage, and showcase your music to the world.
+            </p>
+            <div className="mt-4 flex space-x-4">
+              <Link
+                href="/admin/pages/new"
+                className="bg-white text-primary-600 px-4 py-2 rounded-md font-medium hover:bg-primary-50 transition-colors"
+              >
+                Create New Page
+              </Link>
+              <Link
+                href="/admin/media"
+                className="bg-primary-500 text-white px-4 py-2 rounded-md font-medium hover:bg-primary-400 transition-colors"
+              >
+                Upload Media
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Stats Overview */}
@@ -170,77 +186,96 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Quick Actions */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Content Management */}
+        {/* Professional Music CMS Actions */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Music & Content */}
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Content Management
-            </h3>
+            <div className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 ml-3">Music & Content</h3>
+            </div>
             <div className="space-y-3">
               <Link
                 href="/admin/pages"
-                className="block p-4 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+                className="block p-3 border border-gray-200 rounded-md hover:bg-purple-50 hover:border-purple-200 transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="font-medium text-gray-900">Manage Pages</h4>
-                    <p className="text-sm text-gray-600">Create and edit website pages</p>
+                    <h4 className="font-medium text-gray-900">Pages</h4>
+                    <p className="text-sm text-gray-600">About, Music, Tours</p>
                   </div>
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  <span className="text-purple-600 font-semibold">{stats.pages}</span>
                 </div>
               </Link>
 
               <Link
                 href="/admin/blog"
-                className="block p-4 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+                className="block p-3 border border-gray-200 rounded-md hover:bg-purple-50 hover:border-purple-200 transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="font-medium text-gray-900">Blog Posts</h4>
-                    <p className="text-sm text-gray-600">Write and publish blog articles</p>
+                    <h4 className="font-medium text-gray-900">News & Updates</h4>
+                    <p className="text-sm text-gray-600">Blog posts and announcements</p>
                   </div>
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  <span className="text-purple-600 font-semibold">{stats.blogPosts}</span>
                 </div>
               </Link>
 
               <Link
                 href="/admin/sections"
-                className="block p-4 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+                className="block p-3 border border-gray-200 rounded-md hover:bg-purple-50 hover:border-purple-200 transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="font-medium text-gray-900">Website Sections</h4>
-                    <p className="text-sm text-gray-600">Organize site structure</p>
+                    <h4 className="font-medium text-gray-900">Site Structure</h4>
+                    <p className="text-sm text-gray-600">Organize content sections</p>
                   </div>
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  <span className="text-purple-600 font-semibold">{stats.sections}</span>
                 </div>
               </Link>
             </div>
           </div>
 
-          {/* Media & Tools */}
+          {/* Media & Gallery */}
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Media & Tools
-            </h3>
+            <div className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 ml-3">Media & Gallery</h3>
+            </div>
             <div className="space-y-3">
               <Link
                 href="/admin/media"
-                className="block p-4 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+                className="block p-3 border border-gray-200 rounded-md hover:bg-blue-50 hover:border-blue-200 transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="font-medium text-gray-900">Media Library</h4>
-                    <p className="text-sm text-gray-600">Upload and manage images</p>
+                    <h4 className="font-medium text-gray-900">Photo Library</h4>
+                    <p className="text-sm text-gray-600">High-res photos & album art</p>
                   </div>
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </div>
+              </Link>
+
+              <Link
+                href="/admin/gallery"
+                className="block p-3 border border-gray-200 rounded-md hover:bg-blue-50 hover:border-blue-200 transition-colors"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-medium text-gray-900">Photo Galleries</h4>
+                    <p className="text-sm text-gray-600">Concerts, backstage, studio</p>
+                  </div>
+                  <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -248,30 +283,71 @@ export default function AdminDashboard() {
 
               <Link
                 href="/admin/blocks"
-                className="block p-4 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+                className="block p-3 border border-gray-200 rounded-md hover:bg-blue-50 hover:border-blue-200 transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="font-medium text-gray-900">Content Blocks</h4>
-                    <p className="text-sm text-gray-600">Reusable page components</p>
+                    <p className="text-sm text-gray-600">Reusable components</p>
                   </div>
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <span className="text-blue-600 font-semibold">{stats.contentBlocks}</span>
+                </div>
+              </Link>
+            </div>
+          </div>
+
+          {/* Performance & Growth */}
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <div className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 ml-3">Performance & Growth</h3>
+            </div>
+            <div className="space-y-3">
+              <Link
+                href="/admin/analytics"
+                className="block p-3 border border-gray-200 rounded-md hover:bg-green-50 hover:border-green-200 transition-colors"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-medium text-gray-900">Website Analytics</h4>
+                    <p className="text-sm text-gray-600">Fan engagement & traffic</p>
+                  </div>
+                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
               </Link>
 
               <Link
-                href="/admin/analytics"
-                className="block p-4 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+                href="/admin/seo"
+                className="block p-3 border border-gray-200 rounded-md hover:bg-green-50 hover:border-green-200 transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="font-medium text-gray-900">Analytics</h4>
-                    <p className="text-sm text-gray-600">View website statistics</p>
+                    <h4 className="font-medium text-gray-900">SEO Optimization</h4>
+                    <p className="text-sm text-gray-600">Search engine visibility</p>
                   </div>
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+              </Link>
+
+              <Link
+                href="/admin/social"
+                className="block p-3 border border-gray-200 rounded-md hover:bg-green-50 hover:border-green-200 transition-colors"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-medium text-gray-900">Social Media</h4>
+                    <p className="text-sm text-gray-600">Cross-platform sharing</p>
+                  </div>
+                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
                   </svg>
                 </div>
               </Link>
@@ -279,23 +355,102 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Recent Activity */}
-        <div className="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            Getting Started
-          </h3>
-          <div className="bg-blue-50 border border-blue-200 rounded-md p-4">
-            <h4 className="font-medium text-blue-900 mb-2">Welcome to your CMS!</h4>
-            <p className="text-blue-800 text-sm mb-3">
-              Your content management system is ready to use. Here are some quick tips:
-            </p>
-            <ul className="text-blue-800 text-sm space-y-1">
-              <li>• Start by creating content sections to organize your site</li>
-              <li>• Add pages for static content like About, Contact, etc.</li>
-              <li>• Use blog posts for news, updates, and articles</li>
-              <li>• Upload images in the Media Library for use across your site</li>
-              <li>• Create reusable Content Blocks for common elements</li>
-            </ul>
+        {/* Professional Musician Guide */}
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              Essential Pages for Musicians
+            </h3>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-primary-600 text-sm font-semibold">1</span>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900">About Page</h4>
+                  <p className="text-sm text-gray-600">Your story, biography, and musical journey</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-primary-600 text-sm font-semibold">2</span>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900">Music/Discography</h4>
+                  <p className="text-sm text-gray-600">Albums, singles, and streaming links</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-primary-600 text-sm font-semibold">3</span>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900">Tour Dates</h4>
+                  <p className="text-sm text-gray-600">Upcoming shows and ticket information</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-primary-600 text-sm font-semibold">4</span>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900">Contact & Booking</h4>
+                  <p className="text-sm text-gray-600">How fans and venues can reach you</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6">
+              <Link
+                href="/admin/pages/new"
+                className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
+              >
+                Create Your First Page
+              </Link>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              Professional Tips
+            </h3>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <svg className="w-5 h-5 text-green-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <div>
+                  <h4 className="font-medium text-gray-900">High-Quality Images</h4>
+                  <p className="text-sm text-gray-600">Use professional photos for better engagement and press coverage</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <svg className="w-5 h-5 text-green-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <div>
+                  <h4 className="font-medium text-gray-900">Regular Updates</h4>
+                  <p className="text-sm text-gray-600">Keep fans engaged with news, behind-the-scenes content, and announcements</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <svg className="w-5 h-5 text-green-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <div>
+                  <h4 className="font-medium text-gray-900">SEO Optimization</h4>
+                  <p className="text-sm text-gray-600">Fill in meta descriptions and titles to help fans discover your music</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <svg className="w-5 h-5 text-green-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <div>
+                  <h4 className="font-medium text-gray-900">Mobile-First</h4>
+                  <p className="text-sm text-gray-600">Most fans will visit on mobile - your content is automatically optimized</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
