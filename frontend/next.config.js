@@ -41,10 +41,9 @@ const nextConfig = {
     ignoreDuringBuilds: false,
   },
   
-  // Experimental features
+  // Experimental features (appDir is no longer needed in Next.js 14+)
   experimental: {
-    // Enable app directory (Next.js 13+)
-    appDir: true,
+    // Future experimental features can be added here
   },
 };
 
