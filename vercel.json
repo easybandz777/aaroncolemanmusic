@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "buildCommand": "cd frontend && npm run build",
+  "outputDirectory": "frontend/.next",
+  "installCommand": "cd frontend && npm install",
+  "framework": "nextjs",
+  "functions": {
+    "frontend/src/pages/api/**/*.ts": {
+      "runtime": "@vercel/node"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://your-backend-url.com/api/$1"
+    },
+    {
+      "source": "/media/(.*)",
+      "destination": "https://your-backend-url.com/media/$1"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://your-backend-url.com",
+    "NEXT_PUBLIC_MEDIA_URL": "https://your-backend-url.com/media/"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_API_URL": "https://your-backend-url.com",
+      "NEXT_PUBLIC_MEDIA_URL": "https://your-backend-url.com/media/"
+    }
+  }
+} 
