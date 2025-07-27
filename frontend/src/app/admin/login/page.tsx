@@ -148,7 +148,7 @@ export default function AdminLoginPage() {
               </div>
 
               <a 
-                href="http://localhost:8000/django-admin/" 
+                href="http://localhost:8000/admin/" 
                 className="block w-full text-center bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
